@@ -19,7 +19,7 @@ NEWSPIDER_MODULE = 'company_ifo_spider.spiders'
 #USER_AGENT = 'company_ifo_spider (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -64,10 +64,12 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'company_ifo_spider.pipelines.CompanyIfoSpiderPipeline': 300,
-#}
-
+ITEM_PIPELINES = {
+   'company_ifo_spider.pipelines.CompanyIfoSpiderPipeline': 300,
+}
+RETRY_ENABLED = True#是否进行失败重试
+RETRY_TIMES = 3
+HTTPERROR_ALLOW_ALL = True#下载网页时，发生所有错误返回的response都要处理，网上资料说最好不要这么设置，但是现在技术太菜，没想到其他办法
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
 #AUTOTHROTTLE_ENABLED = True

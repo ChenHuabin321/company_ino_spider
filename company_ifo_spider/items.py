@@ -32,3 +32,4 @@ class BafangItem(scrapy.Item):
     bank_account = scrapy.Field()#银行帐号
     main_market = scrapy.Field()#主要市场
     main_products = scrapy.Field()#主营产品或服务
+    company_web_url = scrapy.Field()#企业网址
